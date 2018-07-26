@@ -1,4 +1,7 @@
+require_relative "board"
 require "colorize"
+require 'byebug'
+
 
 puts "MUAHAHA.  The dastardly unexpected end statement.\n".red
 puts "Do NOT try to solve this error by going one method at a time and looking for an 'end'.\n".red
@@ -6,16 +9,16 @@ puts "Instead, comment out half of the bad file at a time until the error change
 puts ""
 puts "Does this approach feel familiar?  The approach is a version of binary search.\n\n".red
 
-require_relative "board"
 
 class SudokuGame
-  def self.from_file(filename)
-    board = Board.from_file(filename)
-    self.new(board)
-  end
-
   def initialize(board)
     @board = board
+  end
+
+  def self.from_file(filename)
+    # debugger
+    board = Board.from_file(filename)
+    self.new(board)
   end
 
   def get_pos
@@ -55,6 +58,7 @@ class SudokuGame
   end
 
   def play_turn
+    # debugger
     board.render
     pos = get_pos
     val = get_val
@@ -81,6 +85,7 @@ class SudokuGame
     val.is_a?(Integer) &&
       val.between?(0, 9)
   end
+
 
   private
   attr_reader :board
