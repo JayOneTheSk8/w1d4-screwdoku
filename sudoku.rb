@@ -18,6 +18,7 @@ class SudokuGame
 
       begin
         pos = parse_pos(gets.chomp)
+        # debugger
       rescue
         puts "Invalid position entered (did you use a comma?)"
         puts ""
@@ -33,7 +34,9 @@ class SudokuGame
     until val && valid_val?(val)
       puts "Please enter a value between 1 and 9 (0 to clear the tile)"
       print "> "
+
       val = parse_val(gets.chomp)
+      # debugger
     end
     val
   end
@@ -48,8 +51,9 @@ class SudokuGame
 
   def play_turn
     board.render
-    val = get_pos
-    pos = get_val
+    pos = get_pos
+    val = get_val
+    # debugger
     board[pos] = val
   end
 
